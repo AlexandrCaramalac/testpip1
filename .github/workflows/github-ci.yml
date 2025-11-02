@@ -1,0 +1,32 @@
+#Image Auswahl
+image: openjdk:17
+
+#Stages
+stages:
+ -build
+ -test
+
+variables:
+ SRC_DIR: "src"
+  IN_DIR: "bin"
+
+before_script:
+ - mkdir -p &BIN_DIR
+
+build:
+ stage: build
+ script:
+  - echo "Kompiliere Java-Dateien..."
+  - echo "&CI_PIPELINE_SOURCE"
+  - javac -d &BIN_DIR &SRC_DIR/*.java
+artifacts:
+ paths:
+  - &BIN_DIR
+ exire_in: 1 hour
+
+test:
+ stage: test
+ script:
+  - echo "Starte manuellen Testlauf..."
+  - java -cp &BIN_DIR Main
+   
