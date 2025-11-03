@@ -1,5 +1,5 @@
 public class Main {
-
+//änderung
     public static void main(String[] args) {
         System.out.println("Starte manuelle Tests für Continuous Integration...");
 
