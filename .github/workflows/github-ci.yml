@@ -12,24 +12,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Repository-Code auschecken
+      # Repository-Code auschecken
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Java installieren
+      # Java installieren
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # 3️⃣ Build-Verzeichnis erstellen und kompilieren
+      # Build-Verzeichnis erstellen und kompilieren
       - name: Compile Java files
         run: |
           mkdir -p bin
           javac -d bin src/*.java
 
-      # 4️⃣ Testlauf (führt dein Main-Programm aus)
+      # Testlauf (führt dein Main-Programm aus)
       - name: Run tests
         run: |
           echo "Starte manuelle Tests..."
