@@ -1,5 +1,5 @@
 name: Java CI Pipeline
-
+#Bei push und pull wird workflow gestartet
 on:
   push:
     branches:
@@ -9,12 +9,13 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #GitHub startet eine virtuelle Maschine
 
     steps:
       # Repository-Code auschecken
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 #Lädt den Code aus GitHub in das virtuelle System herunter, 
+                                  #damit die weiteren Schritte damit arbeiten können.
 
       # Java installieren
       - name: Set up JDK 17
